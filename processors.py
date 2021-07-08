@@ -1,7 +1,6 @@
 from nltk.stem import PorterStemmer
 from nltk.stem import WordNetLemmatizer
 
-
 def word_stemmer(words):
     stemmer = PorterStemmer()
     stem_words = [stemmer.stem(o) for o in words]
