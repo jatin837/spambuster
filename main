@@ -2,6 +2,8 @@
 
 import argparse
 import os
+from libs import *
+
 
 def get_args() -> tuple:
     ap = argparse.ArgumentParser()
@@ -22,6 +24,24 @@ def main() -> ():
     contents = get_contents_from_file(ipath)
 
     print(contents)
+
+    words = words_from_text(contents)
+
+    stem_words = word_stemmer(words)
+    stem_text = text_from_words(stem_words)
+
+    lemma_words = word_lemmatizer(words)
+    lemma_text = text_from_words(lemma_words)
+
+    print("-"*10)
+    print("stem text")
+    print("-"*10)
+    print(stem_text)
+
+    print("-"*10)
+    print("lemma text")
+    print("-"*10)
+    print(lemma_text)
 
 if __name__ == "__main__":
     main()
