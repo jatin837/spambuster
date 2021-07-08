@@ -2,6 +2,7 @@
 
 from processors import *
 from helpers import *
+from logger import *
 
 
 
@@ -37,6 +38,7 @@ def main() -> ():
     lemma_text = text_from_words(lemma_words)
 
     print(cleaned_contents)
+    logging.info(f"done\ncleaned_contents\n{cleaned_contents}")
 
 if __name__ == "__main__":
     main()
