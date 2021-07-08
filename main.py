@@ -11,11 +11,15 @@ def get_args() -> tuple:
     ipath = os.path.abspath(args["input"])
     return (ipath)
 
+def get_contents_from_file(path: str) -> str:
+    with open(path, 'r') as f:
+        contents = f.read()
+    return contents
+
 def main() -> ():
     ipath = get_args()
 
-    with open(ipath, 'r') as f:
-        contents = f.readlines()
+    contents = get_contents_from_file(ipath)
 
     print(contents)
 
