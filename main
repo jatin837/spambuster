@@ -11,10 +11,11 @@ def main() -> ():
 
     ## get input file path
     ipath = get_args()
+    logging.info(ipath)
 
     ## get raw text from input file path
     raw_contents = get_contents_from_file(ipath)
-    print(raw_contents)
+    logging.info(raw_contents)
 
     ## clean raw_contents(checkout defination of `clean` in processors.clean_text doc_string
     cleaned_contents = clean_text(raw_contents)
