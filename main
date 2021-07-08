@@ -2,9 +2,8 @@
 
 from processors import *
 from helpers import *
-#from logger import *
 
-
+from NB import eval_NB
 
 def main() -> ():
     ## test phase
@@ -38,8 +37,10 @@ def main() -> ():
     ## get lemma text
     lemma_text = text_from_words(lemma_words)
 
-    print(cleaned_contents)
     logging.info(f"done\ncleaned_contents\n{cleaned_contents}")
+
+    spam_percentage = eval_NB(cleaned_contents)
+    print(spam_percentage)
 
 if __name__ == "__main__":
     main()
