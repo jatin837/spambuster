@@ -1,5 +1,6 @@
 from nltk.stem import PorterStemmer
 from nltk.stem import WordNetLemmatizer
+from nltk.tokenize import word_tokenizer
 
 def word_stemmer(words):
     stemmer = PorterStemmer()
@@ -16,3 +17,6 @@ def words_from_text(text: str) -> list[str]:
 
 def text_from_words(words: list[str]) -> str:
     return " ".join(words)
+
+def tokenize(text: str) -> list[str]:
+    return word_tokenizer(text)
