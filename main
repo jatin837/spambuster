@@ -16,7 +16,6 @@ def main() -> ():
     print(raw_contents)
 
     ## clean raw_contents(checkout defination of `clean` in processors.clean_text doc_string
-    breakpoint()
     cleaned_contents = clean_text(raw_contents)
     
     ## get words from raw text using split function
