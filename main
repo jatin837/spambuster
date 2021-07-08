@@ -39,7 +39,7 @@ def main() -> ():
 
     logging.info(f"done\ncleaned_contents\n{cleaned_contents}")
 
-    spam_percentage = eval_NB(cleaned_contents)
+    spam_percentage: float = eval_NB(cleaned_contents)
     print(spam_percentage)
 
 if __name__ == "__main__":
