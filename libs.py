@@ -11,3 +11,9 @@ def word_lemmatizer(words):
     lemmatizer = WordNetLemmatizer()
     lemma_words = [lemmatizer.lemmatize(o) for o in words]
     return lemma_words
+
+def words_from_text(text: str) -> list[str]:
+    return text.split(" ")
+
+def text_from_words(words: list[str]) -> str:
+    return " ".join(words)
