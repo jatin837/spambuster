@@ -35,7 +35,11 @@ def get_feature_index(indx: int) -> list[int]:
     param:  index from cleaned emails
     return: list representing feature index and number of occurence
     """
-    email = docs_cv.toarray()[indx]
+    try:
+        email = docs_cv.toarray()[indx]
+    except IndexError:
+        print("index given is out of range")
+        exit(1)
     feature_index = []
     for i in range(len(email)):
         if email[i] != 0:
