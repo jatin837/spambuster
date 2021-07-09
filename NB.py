@@ -39,8 +39,9 @@ def get_feature_index(indx: int) -> list[int]:
             feature_index.append([i, email[i]])
     return np.array(feature_index)
 
-def get_prior():
-    pass
+
+
+PRIOR: list[float] = [(len(spam))/(len(spam) + len(nspam)), (len(nspam))/(len(spam) + len(nspam))
 
 def get_posterior():
     pass
