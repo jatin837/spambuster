@@ -1,9 +1,17 @@
 from nltk.stem import PorterStemmer
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
+import numpy as np
 
 from nltk.corpus import names
 ALL_NAMES = set(names.words())
+
+with open("feature_space.txt", 'r') as f:
+    feature_space = f.readlines()
+    for i in range(len(feature_space)):
+        feature_space[i] = feature_space[i][:-1]
+
+
 
 ## TODO setup a function which accepts the properties and returns a count-vectorizer accordingly LATER
 
@@ -57,4 +65,13 @@ def clean_text(text: str) -> str:
 
     text_cleaned = text_from_words(text_cleaned)
     return text_cleaned
+
+def text_to_feature_array(text: str) -> np.array:
+    result = []
+    cleaned_text = clean_text(text)
+    tokens = tokenize(cleaned_text)
+    for token in tokens:
+        if token in feature_space:
+            result.append([feature_space.index(token), tokens.count(token)])
+    return result
 

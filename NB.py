@@ -30,6 +30,11 @@ for email in emails:
 docs_cv = cv.fit_transform(emails_cleaned)
 terms = cv.get_feature_names()
 
+with open("feature_space.txt", 'w') as f:
+    for term in terms:
+        f.write(term)
+        f.write('\n')
+
 def get_feature_index(indx: int) -> list[int]:
     """
     param:  index from cleaned emails
