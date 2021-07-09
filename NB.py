@@ -1,4 +1,5 @@
 from helpers import *
+import numpy as np
 import glob
 from processors import *
 
@@ -28,6 +29,15 @@ for email in emails:
     emails_cleaned.append(clean_text(email))
 
 docs_cv = cv.fit_transform(emails_cleaned)
+terms = cv.get_feature_names()
+
+def get_feature_index(indx: int) -> list[int]:
+    email = docs_cv.toarray()[indx]
+    feature_index = []
+    for i in range(len(email)):
+        if email[i] != 0:
+            feature_index.append([i, email[i]])
+    return np.array(feature_index)
 
 def get_prior():
     pass
