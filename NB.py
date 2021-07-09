@@ -51,7 +51,10 @@ def get_feature_index(indx: int) -> list[int]:
 N_spam = labels.count(1)
 N_nspam = labels.count(0)
 
-PRIOR: list[float] = [(N_spam)/(N_spam + N_nspam), (N_nspam)/(N_spam + N_nspam)]
+PRIOR: dict[str, float] = {
+        "spam": (N_spam)/(N_spam + N_nspam), 
+        "non-spam": (N_nspam)/(N_spam + N_nspam)
+        }
 
 def get_posterior():
     pass
