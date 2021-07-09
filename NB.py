@@ -16,7 +16,6 @@ for filename in glob.glob(os.path.join(spam_file_path, '*.txt')):
     emails.append(contents)
     labels.append(1)
 
-breakpoint()
 # ham labeled with 0
 ham_file_path = 'dat/enron1/ham/'
 for filename in glob.glob(os.path.join(ham_file_path, '*.txt')):
@@ -32,6 +31,10 @@ docs_cv = cv.fit_transform(emails_cleaned)
 terms = cv.get_feature_names()
 
 def get_feature_index(indx: int) -> list[int]:
+    """
+    param:  index from cleaned emails
+    return: list representing feature index and number of occurence
+    """
     email = docs_cv.toarray()[indx]
     feature_index = []
     for i in range(len(email)):
