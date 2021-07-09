@@ -41,7 +41,10 @@ def get_feature_index(indx: int) -> list[int]:
 
 
 
-PRIOR: list[float] = [(len(spam))/(len(spam) + len(nspam)), (len(nspam))/(len(spam) + len(nspam))
+N_spam = labels.count(1)
+N_nspam = labels.count(0)
+
+PRIOR: list[float] = [(N_spam)/(N_spam + N_nspam), (N_nspam)/(N_spam + N_nspam)]
 
 def get_posterior():
     pass
