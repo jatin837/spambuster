@@ -27,6 +27,7 @@ emails_cleaned = []
 for email in emails:
     emails_cleaned.append(clean_text(email))
 
+docs_cv = cv.fit_transform(emails_cleaned)
 
 def get_prior():
     pass
