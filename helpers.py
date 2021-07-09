@@ -11,7 +11,7 @@ def get_args() -> tuple:
     return (ipath)
 
 def get_contents_from_file(path: str) -> str:
-    with open(path, 'r') as f:
+    with open(path, 'r', encoding="ISO-8859-1") as f:
         contents = f.read()
     return contents
 
