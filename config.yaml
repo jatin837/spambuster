@@ -3,4 +3,10 @@
 
 - processed_data:
     feature_space: ./feature_space.txt
+    labels: ./labels.npy
 
+- cv:
+    stop_words: english 
+    max_features: 1000, 
+    max_df: 0.5
+    min_df: 2
