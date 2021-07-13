@@ -39,3 +39,6 @@ class Model(object):
     def get_feature_array(self):
         return self.features.toarray()
 
+    def get_feature_names(self):
+        return self.cv.get_feature_names()
+
