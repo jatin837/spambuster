@@ -1,0 +1,6 @@
+- raw_data:
+    path: dat/enron1/
+
+- processed_data:
+    feature_space: ./feature_space.txt
+
