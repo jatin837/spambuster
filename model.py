@@ -18,7 +18,7 @@ class Model(object):
     
     def fit(self):
         self.load_data()
-        self.features = self.cv.fit_transform()
+        self.features = self.cv.fit_transform(self.raw_data)
 
     def load_data(self):
         emails = []
