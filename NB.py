@@ -2,8 +2,7 @@ from helpers import *
 import numpy as np
 import glob
 from processors import *
-
-LABELS :np.array = np.load("labels.npy")
+from model import Model
 
 def eval_NB(p: list[float]) -> float:
     """
@@ -13,17 +12,52 @@ def eval_NB(p: list[float]) -> float:
     """
     pass
 
-INDX_UPTO_SPAM: int = np.count_nonzero(LABELS)
-INDX_UPTO_TOTAL: int = LABELS.shape[0]
-TOTAL_SPAM_FEATURES: int = [np.load(f"data/{str(i + 1)}.npy") for i in range(INDX_UPTO_SPAM)]
+def get_prior(T: str) -> float:
+    """
+    ======
+    param:
+    ======
+        type  => String of either kind
+            - "spam"
+            - "ham"
 
-N_SPAM: int = INDX_UPTO_SPAM
-N_HAM: int = INDX_UPTO_TOTAL - INDX_UPTO_SPAM
+    ==============
+    evaluate prior
+    ==============
+                n_spam
+        p = -----------------
+            n_spam + n_ham
+    """
+    pass
 
-PRIOR: dict[str, float] = {
-        "spam": (N_SPAM)/(N_SPAM + N_HAM), 
-        "non-spam": (N_HAM)/(N_SPAM + N_HAM)
-        }
+def get_likelihood(words: list[str], T: str) -> float:
+    """
+
+    ======
+    param:
+    ======
+        list of words   => list of strings
+        type            => string of either kind:
+            - "spam"
+            - "ham"
+
+    For each word, evaluate p(word)
+    `p1 => p(word 1)`
+    `p2 => p(word 2)`
+    `p3 => p(word 3)`
+      . ..   ...
+      . ..   ...
+      . ..   ...
+    `pN => p(word N)`
+
+    =======
+    return:
+    =======
+        likelihood = p1 * p2 * p3 * p4 * ... * pN
+
+    """
+    pass
+
 
 def p(word: str) -> float:
     try:
