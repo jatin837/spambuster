@@ -35,5 +35,7 @@ class Model(object):
             emails_cleaned.append(clean_text(email))
 
         self.raw_data = emails_cleaned
-
+    
+    def get_feature_array(self):
+        return self.features.toarray()
 
