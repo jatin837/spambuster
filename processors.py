@@ -72,6 +72,6 @@ def text_to_feature_array(text: str) -> np.array:
     tokens = tokenize(cleaned_text)
     for token in tokens:
         if token in feature_space:
-            result.append([feature_space.index(token), tokens.count(token)])
-    return result
+            result.append(np.array([feature_space.index(token), tokens.count(token)]))
+    return np.array(result)
 
