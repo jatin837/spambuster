@@ -45,6 +45,7 @@ class Model(object):
 
         print(f"...DONE...")
         self.raw_data = emails_cleaned
+        self.labels = np.load("labels.npy")
     
     def get_feature_array(self):
         return self.features.toarray()
