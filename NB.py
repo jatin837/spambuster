@@ -3,29 +3,47 @@ import numpy as np
 import glob
 from processors import *
 
-labels = np.load("labels.npy")
+LABELS :np.array = np.load("labels.npy")
 
-def eval_NB(text: str) -> float:
-    return 59.00
+def eval_NB(p: list[float]) -> float:
+    """
+                           (p1 * p2 * p3 * p4 * ... * pN) * PRIOR["spam"]
+    res =   -----------------------------------------------------------------------------------
+            (p1 * p2 * p3 * p4 * ... * pN) + ( (1 - p1) * (1 - p2) * (1 - p3) * ... * (1 - pN))
+    """
+    pass
 
-indx_upto_spam = np.count_nonzero(labels)
-indx_upto_total = labels.shape[0]
-total_spam_features = [np.load(f"data/{str(i + 1)}.npy") for i in range(indx_upto_spam)]
+INDX_UPTO_SPAM: int = np.count_nonzero(labels)
+INDX_UPTO_TOTAL: int = labels.shape[0]
+TOTAL_SPAM_FEATURES: int = [np.load(f"data/{str(i + 1)}.npy") for i in range(INDX_UPTO_SPAM)]
 
-N_spam = indx_upto_spam
-N_nspam = indx_upto_total - indx_upto_spam
+N_SPAM: int = INDX_UPTO_SPAM
+N_HAM: int = INDX_UPTO_TOTAL - INDX_UPTO_SPAM
 
 PRIOR: dict[str, float] = {
-        "spam": (N_spam)/(N_spam + N_nspam), 
-        "non-spam": (N_nspam)/(N_spam + N_nspam)
+        "spam": (N_SPAM)/(N_SPAM + N_HAM), 
+        "non-spam": (N_HAM)/(N_SPAM + N_HAM)
         }
 
+def p(word: str) -> float:
+    try:
+        """
+        check if word exist in our feature space
+        if yes, then evaluate using below expression
 
-def get_posterior():
-    pass
+                            (total number of times 'word' occure in all spam messages)  +  1
+             p(word|Spam) = -----------------------------------------------------------------
+                            (total spam features)    +    (total unique features in our data)
 
-def get_likelihood():
-    pass
+        """
+        pass
+    except ValueError:
+        """
+        if word does not exist in feature_space, then
+        evaluate                             
+                                             1
+                 p = ------------------------------------------------------
+                    total spam features + total unique features in our data
+        """
+        pass
 
-def get_evidence():
-    pass
