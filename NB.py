@@ -13,8 +13,8 @@ def eval_NB(p: list[float]) -> float:
     """
     pass
 
-INDX_UPTO_SPAM: int = np.count_nonzero(labels)
-INDX_UPTO_TOTAL: int = labels.shape[0]
+INDX_UPTO_SPAM: int = np.count_nonzero(LABELS)
+INDX_UPTO_TOTAL: int = LABELS.shape[0]
 TOTAL_SPAM_FEATURES: int = [np.load(f"data/{str(i + 1)}.npy") for i in range(INDX_UPTO_SPAM)]
 
 N_SPAM: int = INDX_UPTO_SPAM

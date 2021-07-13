@@ -1,2 +1,2 @@
-test: test.txt main
-	./main -i test.txt
+test: test.txt app
+	./app -i test.txt
