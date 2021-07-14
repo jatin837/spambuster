@@ -10,8 +10,6 @@ def main() -> ():
     raw_contents = get_contents_from_file(ipath)
     text = Text(raw_contents)
 
-    import ipdb;ipdb.set_trace()
-
     cleaned_contents = text.cleaned_text
     words = text.words
 
