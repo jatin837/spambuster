@@ -53,6 +53,7 @@ def clean_text(text: str) -> str:
     words = tokenize(text)
 
     for word in words:
+        word = word.lower()
         if is_letter_only(word):
             text_cleaned.append(word)
 
