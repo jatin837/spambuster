@@ -11,13 +11,6 @@ with open("feature_space.txt", 'r') as f:
     for i in range(len(feature_space)):
         feature_space[i] = feature_space[i][:-1]
 
-
-
-## TODO setup a function which accepts the properties and returns a count-vectorizer accordingly LATER
-
-from sklearn.feature_extraction.text import CountVectorizer
-cv = CountVectorizer(stop_words="english", max_features=1000, max_df=0.5, min_df=2)
-
 def word_stemmer(words):
     stemmer = PorterStemmer()
     stem_words = [stemmer.stem(o) for o in words]

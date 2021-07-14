@@ -2,8 +2,7 @@
 
 from processors import *
 from helpers import *
-
-from NB import eval_NB
+from classifier import Text
 
 def main() -> ():
     ## test phase
@@ -14,6 +13,7 @@ def main() -> ():
 
     ## get raw text from input file path
     raw_contents = get_contents_from_file(ipath)
+    text = Text(raw_contents)
     logging.info(raw_contents)
 
     ## clean raw_contents(checkout defination of `clean` in processors.clean_text doc_string
@@ -39,7 +39,7 @@ def main() -> ():
 
     logging.info(f"done\ncleaned_contents\n{cleaned_contents}")
 
-    spam_percentage: float = eval_NB(cleaned_contents)
+    spam_percentage: float = 69.99
     print(spam_percentage)
 
 if __name__ == "__main__":
