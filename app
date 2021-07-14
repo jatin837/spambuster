@@ -5,39 +5,13 @@ from helpers import *
 from classifier import Text
 
 def main() -> ():
-    ## test phase
-
-    ## get input file path
     ipath = get_args()
-    logging.info(ipath)
 
-    ## get raw text from input file path
     raw_contents = get_contents_from_file(ipath)
     text = Text(raw_contents)
-    logging.info(raw_contents)
 
-    ## clean raw_contents(checkout defination of `clean` in processors.clean_text doc_string
-    cleaned_contents = clean_text(raw_contents)
-    
-    ## get words from raw text using split function
-    words = words_from_text(cleaned_contents)
-
-    ## get words from raw text using nltk tokenize function
-    words2 = tokenize(cleaned_contents)
-
-    ## get stem words from words
-    stem_words = word_stemmer(words)
-
-    ## get stem text
-    stem_text = text_from_words(stem_words)
-
-    ## get lemma words from words
-    lemma_words = word_lemmatizer(words)
-
-    ## get lemma text
-    lemma_text = text_from_words(lemma_words)
-
-    logging.info(f"done\ncleaned_contents\n{cleaned_contents}")
+    cleaned_contents = text.cleaned_text
+    words = text.words
 
     spam_percentage: float = 69.99
     print(spam_percentage)
