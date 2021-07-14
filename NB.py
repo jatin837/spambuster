@@ -4,6 +4,12 @@ import glob
 from processors import *
 from model import Model
 
+model = Model(path = "./dat/enron1")
+model.cache()
+
+A = [model.get_total_ham_features_count(), model.get_total_spam_features_count()]
+B = model.get_unique_features_count()
+
 def eval_NB(p: list[float]) -> float:
     """
                            (p1 * p2 * p3 * p4 * ... * pN) * PRIOR["spam"]
@@ -59,7 +65,10 @@ def get_likelihood(words: list[str], T: str) -> float:
     pass
 
 
-def p(word: str) -> float:
+def p(word_indx: int, T: int) -> float:
+    if word_indx == -1:
+        p = 1/(A[T] + B)
+        return p
     try:
         """
         check if word exist in our feature space
@@ -70,7 +79,9 @@ def p(word: str) -> float:
                             (total spam features)    +    (total unique features in our data)
 
         """
-        pass
+        x = model.count(word_indx, T)
+        p = (x + 1) / (A[T] + B)
+        return p
     except ValueError:
         """
         if word does not exist in feature_space, then
@@ -79,5 +90,6 @@ def p(word: str) -> float:
                  p = ------------------------------------------------------
                     total spam features + total unique features in our data
         """
-        pass
+        print("IMPOSSIBLE INDEX GIVEN")
+        exit(1)
 

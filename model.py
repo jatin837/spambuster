@@ -74,3 +74,31 @@ class Model(object):
         self.feature_names = self.cv.get_feature_names()
         return self.feature_names
 
+    def get_total_spam_features_count(self):
+        res = 0
+        for i in range(np.count_nonzero(self.labels)):
+            res += np.sum(self.feature_matrix[i])
+        return res
+
+    def get_total_ham_features_count(self):
+        res = 0
+        for i in range(np.count_nonzero(self.labels), self.labels.shape[0]):
+            res += np.sum(self.feature_matrix[i])
+        return res
+    
+    def get_indx(self, T):
+        if T == 0:
+            i = np.count_nonzero(self.labels)
+            j = self.labels.shape[0]
+        if T == 1:
+            i = 0
+            j = np.count_nonzero(self.labels)
+        
+        return i, j
+    def get_unique_features_count(self):
+        return self.feature_names.__len__()
+
+    def count(self, indx, T):
+        i, j = self.get_indx(T)
+        res = np.sum(self.feature_matrix[i:j][indx])
+        return res

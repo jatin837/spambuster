@@ -13,7 +13,7 @@ def main() -> ():
     cleaned_contents = text.cleaned_text
     words = text.words
 
-    spam_percentage: float = 69.99
+    spam_percentage: float = text.get_spam_percentage()
     print(spam_percentage)
 
 if __name__ == "__main__":
