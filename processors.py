@@ -66,7 +66,7 @@ def text_to_feature_array(text: str) -> np.array:
     for token in tokens:
         if token in feature_space:
             result.append(feature_space.index(token))
-        else:
-            result.append(-1)
+    if len(result) == 0:
+        return np.array([-1])
     return np.array(result)
 

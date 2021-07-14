@@ -1,8 +1,6 @@
 from processors import *
 from model import Model
-
-model = Model(path = "./dat/enron1/")
-model.cache()
+from NB import *
 
 class Text(object):
     def __init__(self, raw_text):
@@ -15,4 +13,5 @@ class Text(object):
         return f"{self.words}"
 
     def get_spam_percentage(self):
-        return 69.99
+        res = percentage_spam(self.f_if)
+        return res
