@@ -18,7 +18,7 @@ def eval_NB(p: list[float]) -> float:
     """
     pass
 
-def get_prior(T: str) -> float:
+def get_prior(T: int) -> float:
     """
     ======
     param:
@@ -34,11 +34,18 @@ def get_prior(T: str) -> float:
         p = -----------------
             n_spam + n_ham
     """
-    pass
+    n_spam = np.count_nonzero(model.labels)
+    n_ham = model.labels.shape[0] - n_spam
+    
+    p = (n_spam) / (n_spam + n_ham)
+    
+    if T == 0:
+        return (1 - p)
+    elif T == 1:
+        return p
 
-def get_likelihood(words: list[str], T: str) -> float:
+def get_likelihood(word_indeces: list[int], T: int) -> float:
     """
-
     ======
     param:
     ======
@@ -62,8 +69,11 @@ def get_likelihood(words: list[str], T: str) -> float:
         likelihood = p1 * p2 * p3 * p4 * ... * pN
 
     """
-    pass
 
+    res = 1
+    for word_indx in word_indeces:
+        res *= p(word_indx, T)
+    return res
 
 def p(word_indx: int, T: int) -> float:
     if word_indx == -1:
