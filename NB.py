@@ -77,6 +77,8 @@ def get_likelihood(word_indeces: list[int], T: int) -> float:
     res = 1
     for word_indx in word_indeces:
         res *= p(word_indx, T)
+        if res < 10**-320:
+            return res
     return res
 
 def p(word_indx: int, T: int) -> float:

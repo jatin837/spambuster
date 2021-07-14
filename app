@@ -14,6 +14,7 @@ def main() -> ():
     words = text.words
 
     spam_percentage: float = text.get_spam_percentage()
+    print("--"*10)
     print(spam_percentage)
 
 if __name__ == "__main__":
