@@ -10,14 +10,14 @@ model.cache()
 A = [model.get_total_ham_features_count(), model.get_total_spam_features_count()]
 B = model.get_unique_features_count()
 
-def percentage_spam(p: list[int]) -> float:
+def percentage_spam(word_indeces: list[int]) -> float:
     """
                            (p1 * p2 * p3 * p4 * ... * pN) * PRIOR["spam"]
     res =   -----------------------------------------------------------------------------------
             (p1 * p2 * p3 * p4 * ... * pN) + ( (1 - p1) * (1 - p2) * (1 - p3) * ... * (1 - pN))
     """
     a = get_likelihood(word_indeces, 1)
-    b = get_likelihood(word_indeces, 1)
+    b = get_likelihood(word_indeces, 0)
     prior = get_prior(1)
     res = (a*prior) / (a + b)
     return res*100
