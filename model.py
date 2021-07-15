@@ -25,13 +25,13 @@ class Model(object):
         self.store()
     
     def store(self):
-        with open("feature_names.txt", 'w') as f:
+        with open("data/feature_names.txt", 'w') as f:
             for name in self._get_feature_names():
                 f.write(name + "\n")
 
-        np.save("feature_matrix.npy", self._get_feature_matrix())
-        np.save("labels.npy", self.labels)
-        sp.sparse.save_npz("feature_sparse.npz", self.features)
+        np.save("data/feature_matrix.npy", self._get_feature_matrix())
+        np.save("data/labels.npy", self.labels)
+        sp.sparse.save_npz("data/feature_sparse.npz", self.features)
 
 
     def load_data(self):
@@ -63,10 +63,10 @@ class Model(object):
         return emails_cleaned
 
     def cache(self):
-        self.labels = np.load("labels.npy")
-        self.feature_matrix = np.load("feature_matrix.npy")
-        self.features = sp.sparse.load_npz("feature_sparse.npz")
-        with open("feature_names.txt", 'r') as f:
+        self.labels = np.load("data/labels.npy")
+        self.feature_matrix = np.load("data/feature_matrix.npy")
+        self.features = sp.sparse.load_npz("data/feature_sparse.npz")
+        with open("data/feature_names.txt", 'r') as f:
             self.feature_names = f.read().split("\n")
     
     def _get_feature_matrix(self):

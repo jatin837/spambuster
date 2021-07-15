@@ -1,3 +1,3 @@
-test: test.txt app
-	./app -i test.txt
-	./app -i test2.txt
+all: 
+	./app -i test/test.txt
+	./app -i test/test2.txt

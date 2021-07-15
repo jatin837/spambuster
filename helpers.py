@@ -1,6 +1,5 @@
 import argparse
 import os
-from logger import *
 
 def get_args() -> tuple:
     ap = argparse.ArgumentParser()

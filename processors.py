@@ -6,7 +6,7 @@ import numpy as np
 from nltk.corpus import names
 ALL_NAMES = set(names.words())
 
-with open("feature_space.txt", 'r') as f:
+with open("data/feature_names.txt", 'r') as f:
     feature_space = f.readlines()
     for i in range(len(feature_space)):
         feature_space[i] = feature_space[i][:-1]
