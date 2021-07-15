@@ -2,6 +2,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 import glob
 import os
 import numpy as np
+import scipy as sp
 from helpers import get_contents_from_file
 from processors import clean_text
 from time import sleep
@@ -30,6 +31,7 @@ class Model(object):
 
         np.save("feature_matrix.npy", self._get_feature_matrix())
         np.save("labels.npy", self.labels)
+        sp.sparse.save_npz("feature_sparse.npz", self.features)
 
 
     def load_data(self):
