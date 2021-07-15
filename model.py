@@ -10,7 +10,7 @@ from time import sleep
 DELAY: float = 0.001
 
 class Model(object):
-    def __init__(self, path, stop_words="english", max_features=1000, max_df=0.5, min_df=2):
+    def __init__(self, path='./dat/enron1/', stop_words="english", max_features=1000, max_df=0.5, min_df=2):
         self.path = path
         self.cv = CountVectorizer(
                 stop_words=stop_words,
