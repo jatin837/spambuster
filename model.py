@@ -65,6 +65,7 @@ class Model(object):
     def cache(self):
         self.labels = np.load("labels.npy")
         self.feature_matrix = np.load("feature_matrix.npy")
+        self.feature = sp.sparse.load_npz("feature_sparse.npz")
         with open("feature_names.txt", 'r') as f:
             self.feature_names = f.read().split("\n")
     
