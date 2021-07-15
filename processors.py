@@ -54,7 +54,7 @@ def clean_text(text: str) -> str:
 
     for word in words:
         word = word.lower()
-        if is_letter_only(word):
+        if is_letter_only(word) and word not in ALL_NAMES:
             text_cleaned.append(word)
 
     text_cleaned = text_from_words(text_cleaned)
