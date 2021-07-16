@@ -23,6 +23,7 @@ class Model(object):
         raw_data = self.load_data()
         self.features = self.cv.fit_transform(raw_data)
         self.store()
+
     
     def store(self):
         with open("data/feature_names.txt", 'w') as f:
@@ -33,6 +34,23 @@ class Model(object):
         np.save("data/labels.npy", self.labels)
         sp.sparse.save_npz("data/feature_sparse.npz", self.features)
 
+    def get_likelihood(self, T, indx, smoothing=1):
+        term_matrix = self.features
+        label_index = self._get_label_index()
+        likelihood = {}
+        for label, index in label_index.items():
+            likelihood[label] = term_matrix[index, :].sum(axis=0) + smoothing
+            likelihood[label] = np.asarray(likelihood[label])[0]
+            total_count = likelihood[label].sum()
+            likelihood[label] = likelihood[label] / float(total_count)
+        return likelihood[T][indx]
+
+    def _get_label_index(self):
+        from collections import defaultdict
+        label_index = defaultdict(list)
+        for index, label in enumerate(self.labels):
+            label_index[label].append(index)
+        return label_index
 
     def load_data(self):
         emails = []
