@@ -79,30 +79,4 @@ def get_likelihood(word_indeces: list[int], T: int) -> float:
     return res
 
 def p(word_indx: int, T: int) -> float:
-    if word_indx == -1:
-        p = 1/(A[T] + B)
-        return p
-    try:
-        """
-        check if word exist in our feature space
-        if yes, then evaluate using below expression
-
-                            (total number of times 'word' occure in all spam messages)  +  1
-             p(word|Spam) = -----------------------------------------------------------------
-                            (total spam features)    +    (total unique features in our data)
-
-        """
-        x = model.count(word_indx, T)
-        p = (x + 1) / (A[T] + B)
-        return p
-    except ValueError:
-        """
-        if word does not exist in feature_space, then
-        evaluate                             
-                                             1
-                 p = ------------------------------------------------------
-                    total spam features + total unique features in our data
-        """
-        print("IMPOSSIBLE INDEX GIVEN")
-        exit(1)
-
+    return model.get_likelihood(T = T, indx = word_indx)

@@ -36,7 +36,7 @@ class Model(object):
 
     def get_likelihood(self, T, indx, smoothing=1):
         term_matrix = self.features
-        label_index = self._get_label_index()
+        label_index = self.get_label_index()
         likelihood = {}
         for label, index in label_index.items():
             likelihood[label] = term_matrix[index, :].sum(axis=0) + smoothing
