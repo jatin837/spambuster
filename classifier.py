@@ -13,5 +13,8 @@ class Text(object):
         return f"{self.words}"
 
     def get_spam_percentage(self):
+        if self.f_if.__len__() == 0:
+            print("RESOLVE THIS YOUR MEATHEAD")
+            exit(1)
         res = percentage_spam(self.f_if)
         return res

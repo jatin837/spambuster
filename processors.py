@@ -6,10 +6,10 @@ import numpy as np
 from nltk.corpus import names
 ALL_NAMES = set(names.words())
 
-with open("data/feature_names.txt", 'r') as f:
-    feature_space = f.readlines()
-    for i in range(len(feature_space)):
-        feature_space[i] = feature_space[i][:-1]
+def read_feature_names():
+    with open("data/feature_names.txt", 'r') as f:
+        feature_space = f.read().split('\n')
+    return feature_space
 
 def word_stemmer(words):
     stemmer = PorterStemmer()
@@ -61,13 +61,13 @@ def clean_text(text: str) -> str:
     return text_cleaned
 
 def text_to_feature_array(text: str) -> np.array:
+    feature_space = read_feature_names()
     result = []
     cleaned_text = clean_text(text)
     tokens = tokenize(cleaned_text)
     for token in tokens:
         if token in feature_space:
             result.append(feature_space.index(token))
-    if len(result) == 0:
-        return np.array([-1])
+
     return np.array(result)
 
