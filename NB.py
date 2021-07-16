@@ -22,14 +22,14 @@ def percentage_spam(word_indeces: list[int]) -> float:
     res = (a*prior) / (a + b)
     return res*100
 
-def get_prior(T: int) -> float:
+def get_prior(T: int):
     """
     ======
     param:
     ======
-        type  => String of either kind
-            - "spam"
-            - "ham"
+        class  => integer representing which class
+            - "spam" => 1
+            - "ham"  => 0
 
     ==============
     evaluate prior
@@ -38,15 +38,13 @@ def get_prior(T: int) -> float:
         p = -----------------
             n_spam + n_ham
     """
-    n_spam = np.count_nonzero(model.labels)
-    n_ham = model.labels.shape[0] - n_spam
-    
-    p = (n_spam) / (n_spam + n_ham)
-    
-    if T == 0:
-        return (1 - p)
-    elif T == 1:
-        return p
+    label_index = model.get_label_index()
+    prior = {label: len(index) for label, index in label_index.items()}
+    total_count = sum(prior.values())
+    for label in prior:
+        prior[label] /= float(total_count)
+    return prior[T]
+
 
 def get_likelihood(word_indeces: list[int], T: int) -> float:
     """
@@ -73,7 +71,6 @@ def get_likelihood(word_indeces: list[int], T: int) -> float:
         likelihood = p1 * p2 * p3 * p4 * ... * pN
 
     """
-
     res = 1
     for word_indx in word_indeces:
         res *= p(word_indx, T)

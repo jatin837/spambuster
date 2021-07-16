@@ -45,7 +45,7 @@ class Model(object):
             likelihood[label] = likelihood[label] / float(total_count)
         return likelihood[T][indx]
 
-    def _get_label_index(self):
+    def get_label_index(self):
         from collections import defaultdict
         label_index = defaultdict(list)
         for index, label in enumerate(self.labels):
