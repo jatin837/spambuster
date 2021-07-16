@@ -71,11 +71,8 @@ def get_likelihood(word_indeces: list[int], T: int) -> float:
         likelihood = p1 * p2 * p3 * p4 * ... * pN
 
     """
-    res = 1
-    for word_indx in word_indeces:
-        res *= p(word_indx, T)
-        if res < 10**-320:
-            return res
+    L = np.array([p(word_indx, T) for word_indx in word_indeces])
+    res = np.prod(L)
     return res
 
 def p(word_indx: int, T: int) -> float:
