@@ -18,8 +18,9 @@ def percentage_spam(word_indeces: list[int]) -> float:
     """
     a = get_likelihood(word_indeces, 1)
     b = get_likelihood(word_indeces, 0)
-    prior = get_prior(1)
-    res = (a*prior) / (a + b)
+    Pa = get_prior(1)
+    Pb = get_prior(0)
+    res = (a*Pa) / (a*Pa + b*Pb)
     return res*100
 
 def get_prior(T: int):
