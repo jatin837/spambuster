@@ -15,8 +15,10 @@ pip install -r requirements.txt
 ```
 
 # Usage(TESTING)
+First setup the project
+Then
+
 ```sh
-source env/bin/activate
 make
 ```
 ### Content of test(OUTPUT = 0.40 % Chance of being a spam)
@@ -42,7 +44,7 @@ this message is sent in compliance of the proposed bill section 301 . per sectio
 ```
 
 # Usage(General)
+Setup the project
 ```sh
-source env/bin/activate
 ./app -i <INPUT PATH TO THE TEXT FILE>
 ```
