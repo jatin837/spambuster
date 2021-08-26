@@ -1,8 +1,8 @@
-from helpers import *
+from .helpers import *
 import numpy as np
 import glob
-from processors import *
-from model import Model
+from .processors import *
+from .model import Model
 
 model = Model(path = "./dat/enron1")
 model.cache()

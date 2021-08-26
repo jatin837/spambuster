@@ -3,8 +3,8 @@ import glob
 import os
 import numpy as np
 import scipy as sp
-from helpers import get_contents_from_file
-from processors import clean_text
+from .helpers import get_contents_from_file
+from .processors import clean_text
 from time import sleep
 
 DELAY: float = 0.001

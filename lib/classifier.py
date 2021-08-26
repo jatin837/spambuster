@@ -1,6 +1,6 @@
-from processors import *
-from model import Model
-from NB import *
+from .processors import *
+from .model import Model
+from .NB import *
 
 class Text(object):
     def __init__(self, raw_text):

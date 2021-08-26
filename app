@@ -1,8 +1,8 @@
 #!./env/bin/python
 
-from processors import *
-from helpers import *
-from classifier import Text
+from lib.processors import *
+from lib.helpers import *
+from lib.classifier import Text
 
 def main() -> ():
     ipath = get_args()
