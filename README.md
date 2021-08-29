@@ -48,3 +48,16 @@ Setup the project
 ```sh
 ./app -i <INPUT PATH TO THE TEXT FILE>
 ```
+# Serve REST API
+in the root of the project, first activate the vertual environment
+```sh
+source env/bin/activate
+```
+then either use
+```sh
+make api
+```
+or
+```
+./serv
+ ```
