@@ -14,8 +14,12 @@ class Greet(Resource):
 class TextHandler(Resource):
     def post(self):
         args = parser.parse_args()
-        return "I promise to determine if this is a spam or ham", 201
-    
+        text = args['text']
+        spam_percentage = self.classify(text)
+        return spam_percentage, 201
+
+    def classify(self, text):
+        return 0.5 
 
 api.add_resource(Greet, '/')
 api.add_resource(TextHandler, '/text')

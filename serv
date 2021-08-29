@@ -1,6 +1,7 @@
 #!./env/bin/python
 
-from server.api import app
+from server.api import app, TextHandler
+from lib.classifier import Text
 
 if __name__ == "__main__":
     app.run(debug = True)
