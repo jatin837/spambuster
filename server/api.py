@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_restful import Resource, Api, reqparse
+from lib.classifier import Text
 
 app = Flask(__name__)
 api = Api(app)
@@ -14,12 +15,13 @@ class Greet(Resource):
 class TextHandler(Resource):
     def post(self):
         args = parser.parse_args()
-        text = args['text']
+        text = Text(args['text'])
         spam_percentage = self.classify(text)
         return spam_percentage, 201
 
     def classify(self, text):
-        return 0.5 
+
+        return text.get_spam_percentage() 
 
 api.add_resource(Greet, '/')
 api.add_resource(TextHandler, '/text')
