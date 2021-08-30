@@ -1,9 +1,10 @@
 import './App.css';
+import Title from './components/title'
 
 const App = () => {
   return (
     <div className="App">
-      <h1>Code UI Here</h1>
+      <Title/>
     </div>
   );
 }
