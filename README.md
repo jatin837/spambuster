@@ -19,7 +19,7 @@ First setup the project
 Then
 
 ```sh
-make
+make test
 ```
 ### Content of test(OUTPUT = 0.40 % Chance of being a spam)
 ```vi
@@ -44,7 +44,20 @@ this message is sent in compliance of the proposed bill section 301 . per sectio
 ```
 
 # Usage(General)
-Setup the project
+Setup the project, then use cl interface
 ```sh
 ./app -i <INPUT PATH TO THE TEXT FILE>
 ```
+# Serve REST API
+in the root of the project, first activate the vertual environment
+```sh
+source env/bin/activate
+```
+then either use
+```sh
+make api
+```
+or
+```
+./serv
+ ```
