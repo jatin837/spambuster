@@ -1,10 +1,13 @@
 import './App.css';
-import Title from './components/title'
+import React from "react";
+import Title from './components/title';
+import TextBox from './components/textbox';
 
-const App = () => {
+const App:React.FC = () => {
   return (
     <div className="App">
       <Title/>
+      <TextBox/>
     </div>
   );
 }
