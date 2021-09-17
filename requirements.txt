@@ -7,12 +7,7 @@ bleach==3.3.0
 bpytop==1.0.67
 brotlipy==0.7.0
 certifi==2020.12.5
-cffi @ file:///tmp/build/80754af9/cffi_1606255122322/work
-chardet @ file:///tmp/build/80754af9/chardet_1605303192865/work
 click==8.0.1
-conda==4.9.2
-conda-package-handling @ file:///tmp/build/80754af9/conda-package-handling_1605484832764/work
-cryptography @ file:///tmp/build/80754af9/cryptography_1607635322643/work
 cycler==0.10.0
 decorator==5.0.9
 defusedxml==0.7.1
@@ -20,9 +15,6 @@ distlib==0.3.2
 entrypoints==0.3
 ezFreeCAD==0.13
 filelock==3.0.12
-future==0.18.2
-Glances==3.1.7
-idna @ file:///tmp/build/80754af9/idna_1593446292537/work
 imutils==0.5.4
 ipdb==0.13.9
 ipykernel==5.5.5
@@ -66,12 +58,9 @@ prompt-toolkit==3.0.19
 psutil==5.8.0
 ptyprocess==0.7.0
 pycosat==0.6.3
-pycparser @ file:///tmp/build/80754af9/pycparser_1594388511720/work
 Pygments==2.9.0
-pyOpenSSL @ file:///tmp/build/80754af9/pyopenssl_1606517880428/work
 pyparsing==2.4.7
 pyrsistent==0.17.3
-PySocks @ file:///tmp/build/80754af9/pysocks_1605305812635/work
 pytesseract==0.3.7
 python-dateutil==2.8.1
 pytz==2021.1
@@ -80,8 +69,6 @@ pyzmq==22.1.0
 qtconsole==5.1.0
 QtPy==1.9.0
 regex==2021.7.6
-requests @ file:///tmp/build/80754af9/requests_1606691187061/work
-ruamel-yaml-conda @ file:///tmp/build/80754af9/ruamel_yaml_1605527293619/work
 scikit-learn==0.24.2
 scipy==1.7.0
 Send2Trash==1.7.1
@@ -91,9 +78,7 @@ testpath==0.5.0
 threadpoolctl==2.1.0
 toml==0.10.2
 tornado==6.1
-tqdm @ file:///tmp/build/80754af9/tqdm_1607369919789/work
 traitlets==5.0.5
-urllib3 @ file:///tmp/build/80754af9/urllib3_1603305693037/work
 virtualenv==20.7.2
 virtualenv-clone==0.5.6
 wcwidth==0.2.5
