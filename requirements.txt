@@ -1,3 +1,4 @@
+aniso8601==9.0.1
 argon2-cffi==20.1.0
 async-generator==1.10
 attrs==21.2.0
@@ -7,6 +8,7 @@ bleach==3.3.0
 bpytop==1.0.67
 brotlipy==0.7.0
 certifi==2020.12.5
+cffi==1.14.6
 click==8.0.1
 cycler==0.10.0
 decorator==5.0.9
@@ -15,12 +17,15 @@ distlib==0.3.2
 entrypoints==0.3
 ezFreeCAD==0.13
 filelock==3.0.12
+Flask==2.0.1
+Flask-RESTful==0.3.9
 imutils==0.5.4
 ipdb==0.13.9
 ipykernel==5.5.5
 ipython==7.24.1
 ipython-genutils==0.2.0
 ipywidgets==7.6.3
+itsdangerous==2.0.1
 jedi==0.18.0
 Jinja2==3.0.1
 joblib==1.0.1
@@ -58,6 +63,7 @@ prompt-toolkit==3.0.19
 psutil==5.8.0
 ptyprocess==0.7.0
 pycosat==0.6.3
+pycparser==2.20
 Pygments==2.9.0
 pyparsing==2.4.7
 pyrsistent==0.17.3
@@ -78,9 +84,11 @@ testpath==0.5.0
 threadpoolctl==2.1.0
 toml==0.10.2
 tornado==6.1
+tqdm==4.62.2
 traitlets==5.0.5
 virtualenv==20.7.2
 virtualenv-clone==0.5.6
 wcwidth==0.2.5
 webencodings==0.5.1
+Werkzeug==2.0.1
 widgetsnbextension==3.5.1
