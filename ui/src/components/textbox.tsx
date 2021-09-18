@@ -1,7 +1,11 @@
 import React from 'react'
 import { Form, TextArea, Button } from 'semantic-ui-react'
 
-const TextBox: React.FC = () => {
+interface Props {
+    evalResult(val: String):void,
+}
+
+const TextBox: React.FC<Props> = ({evalResult}) => {
     const [value, setValue] = React.useState('')
 
     const handleChange = (e:any) => {;
@@ -9,7 +13,11 @@ const TextBox: React.FC = () => {
 		setValue(e.target.value);
     }
 
-    const handleSubmit = () => {console.log("submiting "+value)}
+    const handleSubmit = () => {
+        console.log("submiting "+value)
+        evalResult(value)
+    }
+
     return (
         <div>
             <Form onSubmit = {handleSubmit}>
