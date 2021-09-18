@@ -1,12 +1,12 @@
-from flask import Flask
+from flask import Flask, request, jsonify
 from flask_restful import Resource, Api, reqparse
 from lib.classifier import Text
 
 app = Flask(__name__)
 api = Api(app)
 
-parser = reqparse.RequestParser()
-parser.add_argument('text', type=str, help = 'give me a string of text')
+####parser = reqparse.RequestParser()
+####parser.add_argument('text', type=str, help = 'give me a string of text')
 
 class Greet(Resource):
     def get(self):
@@ -14,14 +14,17 @@ class Greet(Resource):
 
 class TextHandler(Resource):
     def post(self):
-        args = parser.parse_args()
-        text = Text(args['text'])
+       #args = parser.parse_args()
+       #text = Text(args['text'])
+       #spam_percentage = self.classify(text)
+        data = request.get_json(force=True)
+        text = data['text']
         spam_percentage = self.classify(text)
-        return spam_percentage, 201
+        return jsonify(val=spam_percentage)
 
     def classify(self, text):
-
-        return text.get_spam_percentage() 
+        textObj = Text(text)
+        return textObj.get_spam_percentage() 
 
 api.add_resource(Greet, '/')
 api.add_resource(TextHandler, '/text')
