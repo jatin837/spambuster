@@ -5,11 +5,8 @@ from flask_cors import CORS
 
 
 app = Flask(__name__)
-cors = CORS(app, resources={r"/text/*": {"origins": ["localhost:3000"]}})
+CORS(app, resources={r"/*": {"origins": "*"}})
 api = Api(app)
-
-####parser = reqparse.RequestParser()
-####parser.add_argument('text', type=str, help = 'give me a string of text')
 
 class Greet(Resource):
     def get(self):
@@ -17,9 +14,6 @@ class Greet(Resource):
 
 class TextHandler(Resource):
     def post(self):
-       #args = parser.parse_args()
-       #text = Text(args['text'])
-       #spam_percentage = self.classify(text)
         data = request.get_json(force=True)
         text = data['text']
         spam_percentage = self.classify(text)
