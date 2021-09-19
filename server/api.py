@@ -1,8 +1,11 @@
 from flask import Flask, request, jsonify
 from flask_restful import Resource, Api, reqparse
 from lib.classifier import Text
+from flask_cors import CORS
+
 
 app = Flask(__name__)
+cors = CORS(app, resources={r"/text/*": {"origins": ["localhost:3000"]}})
 api = Api(app)
 
 ####parser = reqparse.RequestParser()
