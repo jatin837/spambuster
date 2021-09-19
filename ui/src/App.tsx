@@ -12,7 +12,7 @@ const App:React.FC = () => {
 
   const evalResult = (val: String) => {
     setVal(val)
-    axios.post('http://localhost:5000/text/', {
+    axios.post('http://localhost:5000/text', {
       'text':val
     }).then( (res:any) => console.log(res) )
       .catch((err:any) => console.log("error "+err))
