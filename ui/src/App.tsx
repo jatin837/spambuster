@@ -14,7 +14,10 @@ const App:React.FC = () => {
     setVal(val)
     axios.post('http://localhost:5000/text', {
       'text':val
-    }).then( (res:any) => console.log(res) )
+    }).then( (res:any) => {
+        console.log(res.data.val)
+        setPercentage(Number(res.data.val))
+      })
       .catch((err:any) => console.log("error "+err))
     console.log("fetch result for "+val)
   }
