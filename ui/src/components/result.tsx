@@ -6,7 +6,7 @@ interface Props {
 }
 
 const Result: React.FC<Props> = ({percentage}: Props) => {
-    if (percentage == 0){
+    if (percentage === 0){
         console.log("Percentage to be determined")
         return (
             <div>
