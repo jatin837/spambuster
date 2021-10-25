@@ -1,5 +1,5 @@
 # spambuster
-![spam filter](./logo.png)
+![spam filter](./logo.jpg)
 
 a spam detector 
 
