@@ -1,4 +1,6 @@
 # spambuster
+![spam filter](./logo.png)
+
 a spam detector 
 
 
